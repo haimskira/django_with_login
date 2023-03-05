@@ -13,7 +13,7 @@ class StudentSerializer(serializers.ModelSerializer):
         model = Student
         fields = '__all__'
 
-# @permission_classes([IsAuthenticated])
+@permission_classes([IsAuthenticated])
 class student_Views(APIView):
     
     def get(self, request, pk=-1):  # axios.get

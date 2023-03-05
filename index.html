@@ -49,20 +49,20 @@
     <script>
         let token = ""
         const MY_SERVER = "http://127.0.0.1:8000/"; // had to add last slash else I receive CORS error
-        const login = async () => {
-            res = await axios.post(MY_SERVER + "/login/", {
-                "username": user.value,
-                "password": pwd.value
-            });
-            token = res.data.access
-            console.log(res.data.access)
-        }
+        // const login = async () => {
+        //     res = await axios.post(MY_SERVER + "/login/", {
+        //         "username": user.value,
+        //         "password": pwd.value
+        //     });
+        //     token = res.data.access
+        //     console.log(res.data.access)
+        // }
 
 
         const loadData = async () => {
-            const config = {
-                headers: { Authorization: `Bearer ${token}` }
-            };
+            // const config = {
+            //     headers: { Authorization: `Bearer ${token}` }
+            // };
             res = await axios.get(MY_SERVER + "students/"); //,config//
 
             console.log(res.data);
