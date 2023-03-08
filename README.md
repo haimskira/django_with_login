@@ -11,7 +11,7 @@ Start the development server: python manage.py runserver
 
 ### Usage
 Navigate to login.html file 
-Log in with your credentials (or register for a new account - in feature requste)
+Log in with your credentials or register for a new account
 Once logged in, you can view a list of students, add new students, update existing students, or delete students from the database
 
 ### Dependencies

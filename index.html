@@ -51,12 +51,8 @@
 
         let token = localStorage.getItem("localval")
         const loadData = async () => {
-            const config = {
-                headers: { Authorization: `Bearer ${token}` }
-            };
+            const config = { headers: { Authorization: `Bearer ${token}` } };
             res = await axios.get(MY_SERVER + "students/",config);
-
-            // console.log(res.data);
             display.innerHTML = "";
             res.data.forEach((element) => {
                 row = `<td style="text-align:center;">${element.name}</td>
