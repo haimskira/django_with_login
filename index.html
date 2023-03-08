@@ -69,8 +69,9 @@
 
 
         function delstudent(id) {
+            const config = { headers: { Authorization: `Bearer ${token}` } };
             axios
-                .delete(MY_SERVER + "students/" + id)
+                .delete(MY_SERVER + "students/" + id, config)
                 .then((result) => {
                     console.log(result.data);
                     loadData();
@@ -79,13 +80,14 @@
         }
 
         const upstudent = (id) => {
+            const config = { headers: { Authorization: `Bearer ${token}` } };
             const formData = new FormData();
             formData.append("name", sname.value);
             formData.append("age", sage.value);
             formData.append("email", email.value);
             formData.append("image", spic.files[0]);
 
-            axios.put(MY_SERVER + "students/" + id, formData).then((result) => {
+            axios.put(MY_SERVER + "students/" + id, formData, config).then((result) => {
                 console.log(result.data);
                 loadData();
             })
@@ -93,12 +95,13 @@
         };
 
         const addstudent = () => {
+            const config = { headers: { Authorization: `Bearer ${token}` } };
             const formData = new FormData();
             formData.append("name", sname.value);
             formData.append("age", sage.value);
             formData.append("email", email.value);
             formData.append("image", spic.files[0]);
-            axios.post(MY_SERVER + "/students/", formData).then((r) => loadData());
+            axios.post(MY_SERVER + "/students/", formData, config).then((r) => loadData());
 
         };
         loadData()
