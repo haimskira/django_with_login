@@ -47,31 +47,22 @@
     </table>
 
     <script>
-        let token = ""
         const MY_SERVER = "http://127.0.0.1:8000/"; // had to add last slash else I receive CORS error
-        // const login = async () => {
-        //     res = await axios.post(MY_SERVER + "/login/", {
-        //         "username": user.value,
-        //         "password": pwd.value
-        //     });
-        //     token = res.data.access
-        //     console.log(res.data.access)
-        // }
 
-
+        let token = localStorage.getItem("localval")
         const loadData = async () => {
-            // const config = {
-            //     headers: { Authorization: `Bearer ${token}` }
-            // };
-            res = await axios.get(MY_SERVER + "students/"); //,config//
+            const config = {
+                headers: { Authorization: `Bearer ${token}` }
+            };
+            res = await axios.get(MY_SERVER + "students/",config);
 
-            console.log(res.data);
+            // console.log(res.data);
             display.innerHTML = "";
             res.data.forEach((element) => {
                 row = `<td style="text-align:center;">${element.name}</td>
                 <td style="text-align:center;">${element.age}</td>
                 <td style="text-align:center;">${element.email}</td>
-                <td style="text-align:center;"><img src=http://127.0.0.1:8000/${element.image} width="400" height="200"></td>
+                <td style="text-align:center;"><img src=http://127.0.0.1:8000/${element.image} width="200" height="100"></td>
                 <td style="text-align:center;">${element.id}</td>
                 <td style="text-align:center;"><button type="button" class="btn btn-warning" onclick="upstudent(${element.id})">Update</button></td>
                 <td style="text-align:center;"><button type="button" class="btn btn-danger" onclick="delstudent(${element.id})">Delete</button></td>`;
