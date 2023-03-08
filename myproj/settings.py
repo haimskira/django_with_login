@@ -77,6 +77,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'base',
     'rest_framework',
+    'rest_registration',
     'corsheaders',
     'rest_framework_simplejwt.token_blacklist',
 ]
@@ -112,6 +113,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'myproj.wsgi.application'
 
+REST_REGISTRATION = {
+    'REGISTER_VERIFICATION_ENABLED': False,
+    'REGISTER_EMAIL_VERIFICATION_ENABLED': False,
+    'RESET_PASSWORD_VERIFICATION_ENABLED': False,
+}
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases

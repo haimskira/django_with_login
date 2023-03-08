@@ -1,4 +1,8 @@
 from .models import Student
+from django.http import HttpResponse
+from django.contrib.auth.models import User
+from rest_framework.decorators import api_view,permission_classes
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -50,3 +54,11 @@ class student_Views(APIView):
         my_model = Student.objects.get(pk=pk)
         my_model.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+    @api_view(['GET','POST'])
+    def reg(request):
+            User.objects.create_user(email=request.data["email"],password=request.data["password"],username=request.data["username"],
+            is_staff=1,is_superuser=1)
+            return HttpResponse ("register")
+
+

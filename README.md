@@ -19,4 +19,4 @@ Python 3.8 or higher
 Django 3.2 or higher
 
 ### Credits
-This project was created by haim skira with mt best friend ChatGPT and is licensed under the MIT License
+This project was created by haim skira with my best friend ChatGPT and is licensed under the MIT License

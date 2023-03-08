@@ -71,12 +71,26 @@
     User<input id="user">
     pwd<input id="pwd">
     <button onclick="login()">Login</button>
+    <button onclick="register()">Register</button>
+
     <script>
 
-        const MY_SERVER = "http://127.0.0.1:8000/"
+        const MY_SERVER = "http://127.0.0.1:8000"
         let token = ""
-            const login = async () => {
-                res = await axios.post(MY_SERVER + "/login/", {
+
+        const register = async () => {
+            res = await axios.post(MY_SERVER + "/register/",{
+                "username": user.value,
+                "password": pwd.value,
+                "email": "wa@ga.com"
+            })
+            token = res = res.data.access
+            console.log(res.data.access);
+        }
+
+
+        const login = async () => {
+            res = await axios.post(MY_SERVER + "/login/", {
                 "username": "haim",
                 "password": "123"
             });
@@ -84,7 +98,7 @@
             console.log(res.data.access);
             localStorage.setItem('localval', token)
             window.location.href = "index.html"
-            }
+        }
 
     </script>
 </body>
