@@ -216,7 +216,7 @@ body {
             formData.append("age", sage.value);
             formData.append("email", email.value);
             formData.append("image", spic.files[0]);
-            axios.post(MY_SERVER + "/students/", formData, config).then((r) => loadData());
+            axios.post(MY_SERVER + "students/", formData, config).then((r) => loadData());
 
         };
         loadData()
