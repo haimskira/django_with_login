@@ -54,7 +54,7 @@ class student_Views(APIView):
     @api_view(['GET','POST'])
     def reg(request):
             User.objects.create_user(email=request.data["email"],password=request.data["password"],username=request.data["username"],
-            is_staff=1,is_superuser=1)
+            is_staff=1,is_superuser=0)
             return HttpResponse ("register")
 
 
