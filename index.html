@@ -204,10 +204,7 @@ body {
             formData.append("email", email.value);
             formData.append("image", spic.files[0]);
 
-            axios.put(MY_SERVER + "students/" + id, formData, config).then((result) => {
-                console.log(result.data);
-                loadData();
-            })
+            axios.put(MY_SERVER + "students/" + id, formData, config).then((result) => {loadData()})
                 .catch((error) => console.log(error));
         };
 
