@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+    <h1>student list</h1>
+    <br>
+    <div id="display"></div>
+    name <input id="sname">
+    age <input id="age">
+    <button class="btn btn-success" onclick="addname()">add</button>
+
+    <script>
+        const MY_SERVER = "https://secc.onrender.com/student"
+
+        const delname = (id) => {
+            axios.delete(MY_SERVER + "/" + id)
+            getData();
+
+        }
+        const upduser = (id) => {
+            axios.put(MY_SERVER + "/" + id, { name: sname.value, age: age.value })
+            getData();
+
+        }
+
+        const addname = () => {
+            console.log({ name: sname.value, age: age.value })
+            axios.post(MY_SERVER, { name: sname.value, age: age.value })
+            getData();
+        }
+
+        const getData = async () => {
+            const res = await axios.get(MY_SERVER)
+            let tableHTML = "<table class='table'><thead><tr><th>Name</th><th>Age</th><th></th><th></th></tr></thead><tbody>";
+            tableHTML += res.data.map(usr => `<tr>
+            <td>${usr.name}</td>
+            <td>${usr.age}</td>
+            <td><button class="btn btn-danger" onClick='delname(${usr.id})'>delete</button></td>
+            <td><button class="btn btn-primary" onClick='upduser(${usr.id})'>update</button></td>
+            </tr>`).join(" ");
+            tableHTML += "</tbody></table>";
+            display.innerHTML = tableHTML;
+
+        }
+        getData()
+    </script>
+
+
+</body>
+
+</html>
