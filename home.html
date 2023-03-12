@@ -166,6 +166,7 @@ body {
     <script>
         // const MY_SERVER = "http://127.0.0.1:8000/"; // had to add last slash else I receive CORS error
         const MY_SERVER = "https://django-crud-kbs9.onrender.com/"; // had to add last slash else I receive CORS error
+        const IMGSRV = "https://django-crud-kbs9.onrender.com"; // had to add last slash else I receive CORS error
 
         let token = localStorage.getItem("localval")
         const loadData = async () => {
@@ -176,7 +177,7 @@ body {
                 row = `<td style="text-align:center;">${element.name}</td>
                 <td style="text-align:center;">${element.age}</td>
                 <td style="text-align:center;">${element.email}</td>
-                <td style="text-align:center;"><img src=https://django-crud-kbs9.onrender.com${element.image} width="200" height="100"></td>
+                <td style="text-align:center;"><img src=${IMGSRV}${element.image} width="200" height="100"></td>
                 <td style="text-align:center;">${element.id}</td>
                 <td style="text-align:center;"><button type="button" class="btn btn-warning" onclick="upstudent(${element.id})">Update</button></td>
                 <td style="text-align:center;"><button type="button" class="btn btn-danger" onclick="delstudent(${element.id})">Delete</button></td>`;
