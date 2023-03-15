@@ -15,7 +15,7 @@ Create the database tables: python manage.py migrate
 Start the development server: python manage.py runserver
 
 ### Usage
-Navigate to login.html file 
+Navigate to index.html file 
 Log in with your credentials or register for a new account
 Once logged in, you can view a list of students, add new students, update existing students, or delete students from the database
 
