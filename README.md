@@ -3,10 +3,15 @@
 
 ### Installation
 Clone this repository to your local machine: git clone https://github.com/haimskira/django_with_login.git
+
 Create a virtual environment for the project: python -m venv env
+
 Activate the virtual environment: source env/bin/activate (Linux/Mac) or env\Scripts\activate (Windows)
+
 Install the project dependencies: pip install -r requirements.txt
+
 Create the database tables: python manage.py migrate
+
 Start the development server: python manage.py runserver
 
 ### Usage
